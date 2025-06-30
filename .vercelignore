@@ -1,0 +1,7 @@
+project/shetaxi-backend/
+project/node_modules/
+.env.local
+.env
+*.log
+package.json
+package-lock.json

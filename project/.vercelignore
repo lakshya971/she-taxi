@@ -1,5 +1,0 @@
-shetaxi-backend/
-node_modules/
-.env.local
-.env
-*.log
