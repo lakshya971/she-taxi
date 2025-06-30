@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-import { body as evBody, validationResult as evValidationResult } from 'express-validator';
+const { body, validationResult } = require('express-validator');
 
 export const validateRegistration = [
-    evBody('email').isEmail().withMessage('Valid email is required'),
-    evBody('password').isString().isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
+    body('email').isEmail().withMessage('Valid email is required'),
+    body('password').isString().isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
     (req: Request, res: Response, next: NextFunction) => {
-        const errors = evValidationResult(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -14,10 +14,10 @@ export const validateRegistration = [
 ];
 
 export const validateLogin = [
-    evBody('email').isEmail().withMessage('Valid email is required'),
-    evBody('password').isString().notEmpty().withMessage('Password is required'),
+    body('email').isEmail().withMessage('Valid email is required'),
+    body('password').isString().notEmpty().withMessage('Password is required'),
     (req: Request, res: Response, next: NextFunction) => {
-        const errors = evValidationResult(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -26,10 +26,10 @@ export const validateLogin = [
 ];
 
 export const validateUser = [
-    evBody('email').optional().isEmail().withMessage('Valid email is required'),
-    evBody('username').optional().isString().notEmpty().withMessage('Username is required'),
+    body('email').optional().isEmail().withMessage('Valid email is required'),
+    body('username').optional().isString().notEmpty().withMessage('Username is required'),
     (req: Request, res: Response, next: NextFunction) => {
-        const errors = evValidationResult(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -38,10 +38,10 @@ export const validateUser = [
 ];
 
 export const validatePayment = [
-    evBody('amount').isNumeric().withMessage('Amount is required'),
-    evBody('paymentMethod').isString().notEmpty().withMessage('Payment method is required'),
+    body('amount').isNumeric().withMessage('Amount is required'),
+    body('paymentMethod').isString().notEmpty().withMessage('Payment method is required'),
     (req: Request, res: Response, next: NextFunction) => {
-        const errors = evValidationResult(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -50,10 +50,10 @@ export const validatePayment = [
 ];
 
 export const validateRideRequest = [
-    evBody('pickupLocation').isString().notEmpty().withMessage('Pickup location is required'),
-    evBody('dropoffLocation').isString().notEmpty().withMessage('Dropoff location is required'),
+    body('pickupLocation').isString().notEmpty().withMessage('Pickup location is required'),
+    body('dropoffLocation').isString().notEmpty().withMessage('Dropoff location is required'),
     (req: Request, res: Response, next: NextFunction) => {
-        const errors = evValidationResult(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }

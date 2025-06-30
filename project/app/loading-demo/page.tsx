@@ -1,3 +1,5 @@
+"use client";
+
 import Loading, { Spinner, LoadingButton } from '@/components/ui/loading';
 import PageLoading from '@/components/ui/page-loading';
 
