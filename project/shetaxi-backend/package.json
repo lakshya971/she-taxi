@@ -1,0 +1,41 @@
+{
+  "name": "shetaxi-backend",
+  "version": "1.0.0",
+  "description": "Backend for the SheTaxi project, providing APIs for user authentication, ride management, and payment processing.",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "dev": "ts-node-dev src/app.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.10.0",
+    "express-validator": "^6.14.0",
+    "jest": "^26.6.0",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
+  },
+  "keywords": [
+    "taxi",
+    "backend",
+    "api",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
